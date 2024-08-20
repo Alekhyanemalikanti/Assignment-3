@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button</title>
+    <style>
+        /* Body style */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* Centering container based on width and height */
+        .container {
+            width: 300px;
+            height: 200px;
+            background-color: lightblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Text Style */
+        .text {
+            font-size: 20px;
+            color: black;
+            transition: color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        /* Hidden checkbox to toggle state */
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Button Style */
+        label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* When the checkbox is checked, change the container, text, and button styles */
+        input[type="checkbox"]:checked ~ .container {
+            background-color: rgb(240, 255, 80);
+        }
+
+        input[type="checkbox"]:checked ~ .container .text {
+            color: rgb(57, 50, 50);
+        }
+
+        input[type="checkbox"]:checked ~ .container label {
+            background-color: #FF5733;
+        }
+
+        /* Change the button text */
+        input[type="checkbox"]:checked ~ .container .text::before {
+            content: "HI!";
+        }
+
+        input[type="checkbox"]:checked ~ .container label::before {
+            content: "Change Me";
+        }
+
+        /* Default button text */
+        label::before {
+            content: "Change Me";
+        }
+
+        .text::before {
+            content: "Hello!";
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hidden Checkbox for toggling -->
+    <input type="checkbox" id="toggle">
+
+    <!-- Container with text and button inside it -->
+    <div class="container">
+        <div class="text"></div>
+        <!-- Button Label linked to the checkbox -->
+        <label for="toggle"></label>
+    </div>
+
+</body>
+</html>
